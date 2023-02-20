@@ -3632,12 +3632,14 @@ void show_help_default(const char *opt, const char *arg)
     show_help_options(options, "Main options:", 0, OPT_EXPERT, 0);
     show_help_options(options, "Advanced options:", OPT_EXPERT, 0, 0);
     printf("\n");
+#if 0  /* default help message is too wordily, disable children information to make it succinct */
     show_help_children(avcodec_get_class(), AV_OPT_FLAG_DECODING_PARAM);
     show_help_children(avformat_get_class(), AV_OPT_FLAG_DECODING_PARAM);
 #if !CONFIG_AVFILTER
     show_help_children(sws_get_class(), AV_OPT_FLAG_ENCODING_PARAM);
 #else
     show_help_children(avfilter_get_class(), AV_OPT_FLAG_FILTERING_PARAM);
+#endif
 #endif
     printf("\nWhile playing:\n"
            "q, ESC              quit\n"

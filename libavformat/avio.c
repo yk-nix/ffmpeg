@@ -512,6 +512,11 @@ int ffurl_move(const char *url_src, const char *url_dst)
     return ret;
 }
 
+int avio_move(const char *url_src, const char *url_dst)
+{
+	return ffurl_move(url_src, url_dst);
+}
+
 int ffurl_delete(const char *url)
 {
     URLContext *h;
@@ -526,6 +531,11 @@ int ffurl_delete(const char *url)
 
     ffurl_close(h);
     return ret;
+}
+
+int avio_delete(const char *url)
+{
+	return ffurl_delete(url);
 }
 
 #if !FF_API_AVIODIRCONTEXT

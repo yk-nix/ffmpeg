@@ -3776,9 +3776,10 @@ void show_help_default(const char *opt, const char *arg)
     show_usage();
     show_help_options(options, "Main options:", 0, 0, 0);
     printf("\n");
-
+#if 0 /* default help message is too wordily, disable children information to make it succinct */
     show_help_children(avformat_get_class(), AV_OPT_FLAG_DECODING_PARAM);
     show_help_children(avcodec_get_class(), AV_OPT_FLAG_DECODING_PARAM);
+#endif
 }
 
 /**
